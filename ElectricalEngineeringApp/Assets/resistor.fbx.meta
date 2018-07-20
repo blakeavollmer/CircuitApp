@@ -1,54 +1,27 @@
 fileFormatVersion: 2
-guid: 3536bb55b3aaac7438ce7a5577d25957
+guid: 0233b2353b74d6b489bdf4cffbd349c5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: BezierCircle
-    100002: //RootNode
-    100004: Cylinder
-    100006: NurbsPath
-    100008: NurbsPath_001
-    400000: BezierCircle
-    400002: //RootNode
-    400004: Cylinder
-    400006: NurbsPath
-    400008: NurbsPath_001
-    2300000: BezierCircle
-    2300002: Cylinder
-    2300004: NurbsPath
-    2300006: NurbsPath_001
-    3300000: BezierCircle
-    3300002: Cylinder
-    3300004: NurbsPath
-    3300006: NurbsPath_001
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Tan
+    2100002: Red
+    2100004: Yellow
+    2100006: Silver
+    2100008: red
+    2100010: black
+    2100012: bue
+    2100014: gold
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Cylinder
-    4300002: BezierCircle
-    4300004: NurbsPath_001
-    4300006: NurbsPath
-    7400000: Default Take
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material_001
-    second: {fileID: 2100000, guid: 8bdb7e69bb683b6439c500872d862167, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material_004
-    second: {fileID: 2100000, guid: 14ce0cb63a40a77448dafb5b9cce3489, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material_005
-    second: {fileID: 2100000, guid: 9ff47a530c40f8d42ae6c2fe7c154626, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -77,10 +50,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -88,19 +61,19 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 0
+    normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -120,7 +93,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
