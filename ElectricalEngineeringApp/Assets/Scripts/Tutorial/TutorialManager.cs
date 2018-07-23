@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour {
 
-    public List<Tutorial> Tutorials = new List<Tutorial>();
+    /*public List<Tutorial> Tutorials = new List<Tutorial>();
 
     public Text expText;
 
@@ -73,5 +73,5 @@ public class TutorialManager : MonoBehaviour {
         }
 
         return null;
-    }
+    }*/
 }

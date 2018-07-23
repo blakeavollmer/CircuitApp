@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour {
-
+/*
     public int Order;
     public string Explanation;
 
@@ -14,5 +14,5 @@ public class Tutorial : MonoBehaviour {
 
 
     public virtual void CheckIfHappening() { }
-	
+	*/
 }
