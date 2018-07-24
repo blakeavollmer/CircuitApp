@@ -46,7 +46,7 @@ namespace BV.Hololens.EngineeringApp.Effects
                 transitionFactor = Mathf.Lerp(from, to, t);
 
                 t += rate * Time.deltaTime;
-                yield return EndOfFrame;
+                yield return new WaitForEndOfFrame();
             }
 
             transitionFactor = to;

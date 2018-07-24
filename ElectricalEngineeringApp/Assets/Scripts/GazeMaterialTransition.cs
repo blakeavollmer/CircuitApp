@@ -9,7 +9,7 @@ namespace BV.Hololens.EngineeringApp.Effects
         public Material activeMaterial;
 
         [Tooltip("Material displayed when not gazed upon")]
-        public Material[] inactiveMaterial;
+        public Material inactiveMaterial;
 
 
         private Renderer Renderer { get; set; }
@@ -24,8 +24,13 @@ namespace BV.Hololens.EngineeringApp.Effects
         {
             if (Renderer == null)
                 return;
-            for (int i = 0; i < inactiveMaterial.Length; i++)
-                Renderer.material.Lerp(inactiveMaterial[i], activeMaterial, transitionFactor);
+            
+            if (Renderer.materials.Length == 5)
+                Renderer.materials[4].Lerp(inactiveMaterial, activeMaterial, transitionFactor);
+            else if (Renderer.materials.Length == 2)
+                Renderer.materials[1].Lerp(inactiveMaterial, activeMaterial, transitionFactor);
+            else
+                Renderer.material.Lerp(inactiveMaterial, activeMaterial, transitionFactor);
         }
     }
 }
