@@ -24,10 +24,12 @@ namespace BV.Hololens.EngineeringApp.Effects
         {
             if (Renderer == null)
                 return;
-            
+
             if (Renderer.materials.Length == 5)
-                Renderer.materials[4].Lerp(inactiveMaterial, activeMaterial, transitionFactor);
+                Renderer.materials[1].Lerp(inactiveMaterial, activeMaterial, transitionFactor);
             else if (Renderer.materials.Length == 2)
+                Renderer.materials[1].Lerp(inactiveMaterial, activeMaterial, transitionFactor);
+            else if (Renderer.materials.Length == 4)
                 Renderer.materials[1].Lerp(inactiveMaterial, activeMaterial, transitionFactor);
             else
                 Renderer.material.Lerp(inactiveMaterial, activeMaterial, transitionFactor);

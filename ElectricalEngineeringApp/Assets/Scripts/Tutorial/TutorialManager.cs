@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour {
 
-    /*public List<Tutorial> Tutorials = new List<Tutorial>();
+    public List<Tutorial> Tutorials = new List<Tutorial>();
 
     public Text expText;
 
@@ -37,6 +37,7 @@ public class TutorialManager : MonoBehaviour {
     {
         if (currentTutorial)
             currentTutorial.CheckIfHappening();
+            
 	}
 
     public void CompletedTutorial()
@@ -51,27 +52,28 @@ public class TutorialManager : MonoBehaviour {
         if (!currentTutorial)
         {
             CompletedAllTutorials();
-            return;
+            //return;
         }
 
-        expText.text = currentTutorial.Explanation;
+        expText = currentTutorial.Explanation;
     }
 
     public void CompletedAllTutorials()
     {
-        expText.text = "You have completed the tutorial!";
+        //expText.text = "You have completed the tutorial!";
 
         // Button for main menu
     }
 
     public Tutorial GetTutorialByOrder(int Order)
     {
-        for (int i = 0; i< Tutorials.Count; i++)
+        for (int i = 1; i< Tutorials.Count; i++)
         {
             if (Tutorials[i].Order == Order)
                 return Tutorials[i];
+
         }
 
         return null;
-    }*/
+    }
 }

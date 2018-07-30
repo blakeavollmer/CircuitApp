@@ -8,7 +8,7 @@ public class BreadboardHoles : MonoBehaviour, IFocusable {
 
     // Use this for initialization
     void Start () {
-        //transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
+        transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
         transform.GetComponent<MeshRenderer>().material.color = Color.clear;
     }
 
@@ -16,11 +16,12 @@ public class BreadboardHoles : MonoBehaviour, IFocusable {
     {
         transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
         transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+        
     }
 
     void IFocusable.OnFocusExit()
     {
-        //transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
+        transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
         transform.GetComponent<MeshRenderer>().material.color = Color.clear;
     }
 
