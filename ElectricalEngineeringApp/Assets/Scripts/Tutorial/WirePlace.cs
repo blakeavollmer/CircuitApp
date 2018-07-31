@@ -3,63 +3,81 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WirePlace : Tutorial, IInputClickHandler
+namespace BV.Hololens.EngineeringApp.Classes
 {
-    public GameObject HoleLeft;
-    public GameObject HoleRight;
-    public GameObject WireStand;
-    public GameObject WireSet;
-    public GameObject LEDOff;
-    public GameObject LEDOn;
-
-    int count;
-    bool TaskCompleted = false;
-
-
-
-    // Use this for initialization
-    void Start()
+    [RequireComponent(typeof(AudioSource))]
+    public class WirePlace : Tutorial, IInputClickHandler
     {
-        InputManager.Instance.AddGlobalListener(gameObject);
+        public GameObject HoleLeft;
+        public GameObject HoleRight;
+        public GameObject WireStand;
+        public GameObject WireSet;
+
+        public GameObject nextTutorial;
+        public GameObject previousTutorial;
 
 
-    }
+        public AudioSource audioSource;
+
+        public AudioClip selectPower;
+
+        int count;
+        bool TaskCompleted = false;
 
 
-    public void OnInputClicked(InputClickedEventData eventData)
-    {
-        GameObject currentObject = eventData.selectedObject;
 
-        HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-        HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
-        if (currentObject.name == "8J" && count == 0)
+        // Use this for initialization
+        void Start()
         {
-            WireStand.SetActive(true);
-            count++;
-            HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
-            HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
-            HoleRight.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-            HoleRight.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            InputManager.Instance.AddGlobalListener(gameObject);
+            HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+            HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+
+
         }
 
-        else if (currentObject.name == "-6R" && count == 1)
+
+        public void OnInputClicked(InputClickedEventData eventData)
         {
-            WireStand.SetActive(false);
-            WireSet.SetActive(true);
-            LEDOff.SetActive(false);
-            LEDOn.SetActive(true);
-            count++;
-
-            HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
-            HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
-            HoleRight.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
-            HoleRight.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
-
-            TaskCompleted = true;
-            this.enabled = false;
+            GameObject currentObject = eventData.selectedObject;
 
 
-            TutorialManager.Instance.CompletedTutorial();
+            if (currentObject.name == "8J" && count == 0)
+            {
+                WireStand.SetActive(true);
+                count++;
+                HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
+                HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
+                HoleRight.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                HoleRight.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            }
+
+            else if (currentObject.name == "-6R" && count == 1)
+            {
+                WireStand.SetActive(false);
+                WireSet.SetActive(true);
+                
+                count++;
+
+                HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
+                HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
+                HoleRight.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
+                HoleRight.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
+
+                audioSource = GetComponent<AudioSource>();
+
+                audioSource.clip = selectPower;
+                audioSource.Play();
+
+                nextTutorial.GetComponent<SecondPowerSource>().enabled = true;
+                previousTutorial.GetComponent<WireSelect>().enabled = false;
+
+                TaskCompleted = true;
+                this.enabled = false;
+
+
+                TutorialManager.Instance.CompletedTutorial();
+            }
         }
     }
 }

@@ -3,33 +3,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResistSelect : Tutorial, IInputClickHandler
+namespace BV.Hololens.EngineeringApp.Classes
 {
-    bool TaskCompleted = false;
-
-    private void Start()
+    [RequireComponent(typeof(AudioSource))]
+    public class ResistSelect : Tutorial, IInputClickHandler
     {
-        InputManager.Instance.AddGlobalListener(gameObject);
+        bool TaskCompleted = false;
 
-    }
+        public AudioSource audioSource;
 
-    public override void CheckIfHappening()
-    {
-        if (TaskCompleted)
-            return;
-    }
+        public AudioClip resistorPlace;
 
-    public void OnInputClicked(InputClickedEventData eventData)
-    {
-        GameObject currentObject = eventData.selectedObject;
+        public GameObject nextTutorial;
+        public GameObject previousTutorial;
 
-        if (currentObject.name == "resistor1")
+        private void Start()
         {
-            eventData.Use();
-            TaskCompleted = true;
-            this.enabled = false;
-            TutorialManager.Instance.CompletedTutorial();
-        }
-    }
+            InputManager.Instance.AddGlobalListener(gameObject);
 
+            
+        }
+
+
+
+
+        public override void CheckIfHappening()
+        {
+            if (TaskCompleted)
+                return;
+        }
+
+        public void OnInputClicked(InputClickedEventData eventData)
+        {
+            GameObject currentObject = eventData.selectedObject;
+
+
+            //if (TutorialManager.FindCurrentTutorial() == 3)
+
+
+
+            if (currentObject.name == "resistor1")
+            {
+                audioSource = GetComponent<AudioSource>();
+                audioSource.clip = resistorPlace;
+                audioSource.Play();
+                new WaitForSeconds(audioSource.clip.length);
+                eventData.Use();
+                nextTutorial.GetComponent<ResistPlace>().enabled = true;
+                previousTutorial.GetComponent<LEDPlace>().enabled = false;
+                TaskCompleted = true;
+                this.enabled = false;
+                TutorialManager.Instance.CompletedTutorial();
+            }
+        }
+
+    }
 }

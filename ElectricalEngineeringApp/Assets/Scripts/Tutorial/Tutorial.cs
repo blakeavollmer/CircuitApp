@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+namespace BV.Hololens.EngineeringApp.Classes
+{ 
 public class Tutorial : MonoBehaviour {
 
     public int Order;
@@ -16,4 +17,5 @@ public class Tutorial : MonoBehaviour {
 
     public virtual void CheckIfHappening() { }
 	
+}
 }

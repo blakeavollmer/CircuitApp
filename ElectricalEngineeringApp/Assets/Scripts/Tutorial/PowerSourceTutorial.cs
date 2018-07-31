@@ -3,49 +3,70 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerSourceTutorial : Tutorial, IInputClickHandler {
-
-
-    public GameObject OnePointFiveVolt; // = GameObject.Find("Housing");
-    public GameObject NineVolt; 
-    bool TaskCompleted = false;
-
-    private void Start()
+namespace BV.Hololens.EngineeringApp.Classes
+{
+    [RequireComponent(typeof(AudioSource))]
+    public class PowerSourceTutorial : Tutorial, IInputClickHandler
     {
-        InputManager.Instance.AddGlobalListener(gameObject);
 
-    }
-    
-    public override void CheckIfHappening()
-    {
-        if (TaskCompleted)
-            return;
-    }
+        public AudioSource audioSource;
 
-    public void OnInputClicked(InputClickedEventData eventData)
-    {
-        GameObject currentObject = eventData.selectedObject;
+        public AudioClip positiveWire;
 
-        if (currentObject.name == "9v")
+        public GameObject OnePointFiveVolt; 
+        public GameObject NineVolt;
+
+        public GameObject LEDOff;
+        public GameObject LEDOn;
+
+        public GameObject oldPositive;
+        public GameObject oldNegative;
+
+        public GameObject nextTutorial;
+        public GameObject previousTutorial;
+
+        bool TaskCompleted = false;
+
+        private void Start()
         {
-            eventData.Use();
-            NineVolt.SetActive(true);
-            OnePointFiveVolt.SetActive(false);
-            TaskCompleted = true;
-            this.enabled = false;
-            TutorialManager.Instance.CompletedTutorial();
+            InputManager.Instance.AddGlobalListener(gameObject);
+
+
         }
 
-        else if (currentObject.name == "Cylinder_004")
+        public override void CheckIfHappening()
         {
-            eventData.Use();
-            OnePointFiveVolt.SetActive(true);
-            NineVolt.SetActive(false);
-            TaskCompleted = true;
-            this.enabled = false;
-            TutorialManager.Instance.CompletedTutorial();
-            
+            if (TaskCompleted)
+                return;
         }
-    }
 
+        public void OnInputClicked(InputClickedEventData eventData)
+        {
+            GameObject currentObject = eventData.selectedObject;
+
+            if (currentObject.name == "9v")
+            {
+                eventData.Use();
+                audioSource = GetComponent<AudioSource>();
+
+                audioSource.clip = positiveWire;
+                audioSource.Play();
+                NineVolt.SetActive(true);
+                OnePointFiveVolt.SetActive(false);
+                LEDOn.SetActive(false);
+                LEDOff.SetActive(true);
+                oldNegative.SetActive(false);
+                oldPositive.SetActive(false);
+
+                nextTutorial.GetComponent<SecondPowerWireTutorial>().enabled = true;
+                previousTutorial.GetComponent<WelcomeAudio>().enabled = false;
+
+                TaskCompleted = true;
+                this.enabled = false;
+                TutorialManager.Instance.CompletedTutorial();
+            }
+
+        }
+
+    }
 }

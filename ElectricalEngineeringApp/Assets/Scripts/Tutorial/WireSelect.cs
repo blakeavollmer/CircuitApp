@@ -3,33 +3,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WireSelect : Tutorial, IInputClickHandler
+namespace BV.Hololens.EngineeringApp.Classes
 {
-    bool TaskCompleted = false;
-
-    private void Start()
+    [RequireComponent(typeof(AudioSource))]
+    public class WireSelect : Tutorial, IInputClickHandler
     {
-        InputManager.Instance.AddGlobalListener(gameObject);
+        bool TaskCompleted = false;
+        public AudioSource audioSource;
 
-    }
+        public AudioClip selectWire;
 
-    public override void CheckIfHappening()
-    {
-        if (TaskCompleted)
-            return;
-    }
+        public GameObject nextTutorial;
+        public GameObject previousTutorial;
 
-    public void OnInputClicked(InputClickedEventData eventData)
-    {
-        GameObject currentObject = eventData.selectedObject;
-
-        if (currentObject.name == "Wire")
+        private void Start()
         {
-            eventData.Use();
-            TaskCompleted = true;
-            this.enabled = false;
-            TutorialManager.Instance.CompletedTutorial();
-        }
-    }
+            InputManager.Instance.AddGlobalListener(gameObject);
 
+
+        }
+
+        public override void CheckIfHappening()
+        {
+            if (TaskCompleted)
+                return;
+        }
+
+        public void OnInputClicked(InputClickedEventData eventData)
+        {
+            GameObject currentObject = eventData.selectedObject;
+
+            if (currentObject.name == "Wire")
+            {
+                eventData.Use();
+                audioSource = GetComponent<AudioSource>();
+
+                audioSource.clip = selectWire;
+                audioSource.Play();
+                nextTutorial.GetComponent<WirePlace>().enabled = true;
+                previousTutorial.GetComponent<ResistPlace>().enabled = false;
+                TaskCompleted = true;
+                this.enabled = false;
+                TutorialManager.Instance.CompletedTutorial();
+            }
+        }
+
+    }
 }
