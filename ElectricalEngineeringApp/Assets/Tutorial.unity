@@ -33886,6 +33886,18 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4000013316072862, guid: a611e772ef8ddf64d8106a9cbb70f31c, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013316072862, guid: a611e772ef8ddf64d8106a9cbb70f31c, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013316072862, guid: a611e772ef8ddf64d8106a9cbb70f31c, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.22
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a611e772ef8ddf64d8106a9cbb70f31c, type: 2}
   m_IsPrefabAsset: 0
@@ -34771,8 +34783,7 @@ MonoBehaviour:
   Order: 11
   Explanation: {fileID: 0}
   audioSource: {fileID: 1456086652}
-  voltageChanged: {fileID: 8300000, guid: 477452c5a44bf7f4a98df1eef31c2277, type: 3}
-  selectResistor: {fileID: 8300000, guid: ce2aaf8f4f109a74c8900c6989fd7c65, type: 3}
+  voltageChanged: {fileID: 8300000, guid: c8de668415f708341b6dad0e44d858ce, type: 3}
   oldResistor: {fileID: 346221696}
   newResistor: {fileID: 1427956844}
   nextTutorial: {fileID: 2026511699}

@@ -34,7 +34,9 @@ namespace BV.Hololens.EngineeringApp.Classes
             InputManager.Instance.AddGlobalListener(gameObject);
             HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
             HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
-
+            audioSource = GetComponent<AudioSource>();
+            audioSource.clip = positiveLead;
+            audioSource.Play();
         }
 
 
@@ -43,9 +45,7 @@ namespace BV.Hololens.EngineeringApp.Classes
         {
 
             GameObject currentObject = eventData.selectedObject;
-            audioSource = GetComponent<AudioSource>();
-            audioSource.clip = positiveLead;
-            audioSource.Play();
+
 
 
 

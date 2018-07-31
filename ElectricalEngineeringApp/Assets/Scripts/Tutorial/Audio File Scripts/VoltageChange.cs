@@ -11,7 +11,7 @@ namespace BV.Hololens.EngineeringApp.Classes
         public AudioSource audioSource;
 
         public AudioClip voltageChanged;
-        public AudioClip selectResistor;
+
 
         public GameObject oldResistor;
         public GameObject newResistor;
@@ -29,8 +29,7 @@ namespace BV.Hololens.EngineeringApp.Classes
             audioSource.clip = voltageChanged;
             audioSource.Play();
             yield return new WaitForSeconds(audioSource.clip.length);
-            audioSource.clip = selectResistor;
-            audioSource.Play();
+
 
             oldResistor.SetActive(false);
             newResistor.SetActive(true);
