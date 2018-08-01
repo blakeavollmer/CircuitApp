@@ -8,6 +8,7 @@ namespace BV.Hololens.EngineeringApp.Classes
     [RequireComponent(typeof(AudioSource))]
     public class PowerSourceTutorial : Tutorial, IInputClickHandler
     {
+        public GameObject AnimationObject;
 
         public AudioSource audioSource;
 
@@ -25,12 +26,16 @@ namespace BV.Hololens.EngineeringApp.Classes
         public GameObject nextTutorial;
         public GameObject previousTutorial;
 
+
+
         bool TaskCompleted = false;
 
         private void Start()
         {
             InputManager.Instance.AddGlobalListener(gameObject);
 
+            
+            
 
         }
 
@@ -46,6 +51,9 @@ namespace BV.Hololens.EngineeringApp.Classes
 
             if (currentObject.name == "9v")
             {
+                AnimationObject.SetActive(false);
+                previousTutorial.GetComponent<Animator>().enabled = false;
+                previousTutorial.GetComponent<AudioSource>().enabled = false;
                 eventData.Use();
                 audioSource = GetComponent<AudioSource>();
 
@@ -58,8 +66,9 @@ namespace BV.Hololens.EngineeringApp.Classes
                 oldNegative.SetActive(false);
                 oldPositive.SetActive(false);
 
+
                 nextTutorial.GetComponent<SecondPowerWireTutorial>().enabled = true;
-                previousTutorial.GetComponent<WelcomeAudio>().enabled = false;
+                previousTutorial.GetComponent<PowerWireTutorial>().enabled = false;
 
                 TaskCompleted = true;
                 this.enabled = false;

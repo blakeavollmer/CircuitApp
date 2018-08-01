@@ -44,6 +44,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
             if (currentObject.name == "resistor1")
             {
+                previousTutorial.GetComponent<AudioSource>().enabled = false;
                 audioSource = GetComponent<AudioSource>();
                 audioSource.clip = resistorPlace;
                 audioSource.Play();

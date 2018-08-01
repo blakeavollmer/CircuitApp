@@ -110,6 +110,9 @@
     <AppxPackagedFile Include="C:\Users\Blake\Documents\Git\CircuitApp\ElectricalEngineeringApp\UWP\ElectricalEngineeringApp\bin\x86\Master\ilc\Data\sharedassets1.assets">
       <PackagePath>Data\sharedassets1.assets</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Blake\Documents\Git\CircuitApp\ElectricalEngineeringApp\UWP\ElectricalEngineeringApp\bin\x86\Master\ilc\Data\sharedassets1.resource">
+      <PackagePath>Data\sharedassets1.resource</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Blake\Documents\Git\CircuitApp\ElectricalEngineeringApp\UWP\ElectricalEngineeringApp\bin\x86\Master\ilc\ElectricalEngineeringApp.dll">
       <PackagePath>ElectricalEngineeringApp.dll</PackagePath>
     </AppxPackagedFile>

@@ -39,7 +39,19 @@ namespace BV.Hololens.EngineeringApp.Classes
             audioSource.Play();
         }
 
-
+        void Update()
+        {
+            if (count == 0)
+            {
+                HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            }
+            if (count == 1)
+            {
+                HoleRight.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                HoleRight.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            }
+        }
 
         public void OnInputClicked(InputClickedEventData eventData)
         {
@@ -56,7 +68,7 @@ namespace BV.Hololens.EngineeringApp.Classes
             {
                 LEDStand.SetActive(true);
                 count++;
-                HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
+                //HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
                 HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
                 HoleRight.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
                 HoleRight.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
@@ -74,9 +86,9 @@ namespace BV.Hololens.EngineeringApp.Classes
                 LEDSet.SetActive(true);
                 count++;
 
-                HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
+                //HoleLeft.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
                 HoleLeft.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
-                HoleRight.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
+                //HoleRight.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Transparent/Diffuse");
                 HoleRight.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
 
                 audioSource.clip = nextStep;

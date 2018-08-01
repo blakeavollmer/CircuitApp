@@ -35,6 +35,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
             if (currentObject.name == "Wire")
             {
+                previousTutorial.GetComponent<AudioSource>().enabled = false;
                 eventData.Use();
                 audioSource = GetComponent<AudioSource>();
 

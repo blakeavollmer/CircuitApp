@@ -25,13 +25,19 @@ namespace BV.Hololens.EngineeringApp.Classes
             audioSource.clip = grabLED;
             audioSource.Play();
 
+            waitForSeconds(audioSource);
+
             TaskCompleted = true;
             this.enabled = false;
             TutorialManager.Instance.CompletedTutorial();
+            
 
 
         }
-
+        IEnumerator waitForSeconds(AudioSource audio)
+        {
+            yield return new WaitForSeconds(audio.clip.length);
+        }
 
     }
 }

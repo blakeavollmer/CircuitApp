@@ -43,6 +43,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
             if (currentObject.name == "Cylinder_004")
             {
+                previousTutorial.GetComponent<AudioSource>().enabled = false;
                 eventData.Use();
                 OnePointFiveVolt.SetActive(true);
                 NineVolt.SetActive(false);
@@ -50,6 +51,8 @@ namespace BV.Hololens.EngineeringApp.Classes
 
                 audioSource.clip = positiveConnect;
                 audioSource.Play();
+
+                waitForSeconds(audioSource);
 
                 nextTutorial.GetComponent<PowerWireTutorial>().enabled = true;
                 previousTutorial.GetComponent<WirePlace>().enabled = false;
@@ -60,6 +63,10 @@ namespace BV.Hololens.EngineeringApp.Classes
 
 
             }
+        }
+        IEnumerator waitForSeconds(AudioSource audio)
+        {
+            yield return new WaitForSeconds(audio.clip.length);
         }
 
     }

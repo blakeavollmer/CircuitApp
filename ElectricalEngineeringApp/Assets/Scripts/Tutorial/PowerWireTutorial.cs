@@ -22,15 +22,22 @@ namespace BV.Hololens.EngineeringApp.Classes
         public GameObject OneConnect;
         public GameObject LEDOff;
         public GameObject LEDOn;
+     
+
 
         public GameObject nextTutorial;
         public GameObject previousTutorial;
+
+        public GameObject AnimationObject;
 
         public AudioSource audioSource;
 
         public AudioClip Explain1;
         public AudioClip Explain2;
         public AudioClip negativeConnect;
+
+        Animator anim;
+
 
         int count = 0;
         bool TaskCompleted = false;
@@ -40,11 +47,25 @@ namespace BV.Hololens.EngineeringApp.Classes
             InputManager.Instance.AddGlobalListener(gameObject);
             PositiveHole.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
             PositiveHole.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            anim = GetComponent<Animator>();
+            anim.enabled = false;
+            AnimationObject.SetActive(false);
 
-            
 
+        }
 
-
+        void Update()
+        {
+            if (count == 0)
+            {
+                PositiveHole.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                PositiveHole.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            }
+            if (count == 1)
+            {
+                NegativeHole.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                NegativeHole.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            }
         }
 
         public override void CheckIfHappening()
@@ -60,7 +81,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
             if (currentObject.name == "+1L" && count == 0 || count == 2)
             {
-
+                previousTutorial.GetComponent<AudioSource>().enabled = false;
                 //NineVolt.GetComponentInParent<MeshRenderer>().enabled = true;
                 if (NineVolt.activeSelf)
                 {
@@ -77,12 +98,14 @@ namespace BV.Hololens.EngineeringApp.Classes
                 NegativeHole.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
                 NegativeHole.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
                 audioSource = GetComponent<AudioSource>();
+
                 audioSource.clip = negativeConnect;
                 audioSource.Play();
             }
 
             else if (currentObject.name == "-1R" && count == 1 || count == 3)
             {
+                audioSource.Stop();
                 if (NineVolt.activeSelf)
                 {
                     NegativeWireNine.SetActive(true);
@@ -97,6 +120,7 @@ namespace BV.Hololens.EngineeringApp.Classes
                     NineConnect.SetActive(true);
                     audioSource.clip = Explain2;
                     audioSource.Play();
+                    waitForSeconds(audioSource);
                 }
                 else
                 {
@@ -104,11 +128,20 @@ namespace BV.Hololens.EngineeringApp.Classes
                     OneConnect.SetActive(true);
                     audioSource.clip = Explain1;
                     audioSource.Play();
+                    waitForSeconds(audioSource);
                 }
                 count++;
 
                 LEDOff.SetActive(false);
                 LEDOn.SetActive(true);
+
+                AnimationObject.SetActive(true);
+                anim.enabled = true;
+                anim.Play("3vAnimation");
+
+                
+
+                
 
                 nextTutorial.GetComponent<PowerSourceTutorial>().enabled = true;
                 previousTutorial.GetComponent<SecondPowerSource>().enabled = false;
@@ -121,6 +154,9 @@ namespace BV.Hololens.EngineeringApp.Classes
                 TutorialManager.Instance.CompletedTutorial();
             }
         }
-
+        IEnumerator waitForSeconds(AudioSource audio)
+        {
+            yield return new WaitForSeconds(audio.clip.length);
+        }
     }
 }

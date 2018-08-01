@@ -26,9 +26,11 @@ namespace BV.Hololens.EngineeringApp.Classes
         public void OnInputClicked(InputClickedEventData eventData)
         {
             GameObject currentObject = eventData.selectedObject;
+            
 
             if (currentObject.name == "LED")
             {
+                previousTutorial.GetComponent<AudioSource>().enabled = false;
                 eventData.Use();
                 nextTutorial.GetComponent<LEDPlace>().enabled = true;
                 previousTutorial.GetComponent<WelcomeAudio>().enabled = false;

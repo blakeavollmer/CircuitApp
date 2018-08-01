@@ -15,26 +15,36 @@ namespace BV.Hololens.EngineeringApp.Classes
 
         public GameObject oldResistor;
         public GameObject newResistor;
+        public GameObject placedOldResistor;
+        public GameObject placedNewResistor;
+        public GameObject homeScreen;
 
-        public GameObject nextTutorial;
+ 
         public GameObject previousTutorial;
 
         bool TaskCompleted = false;
 
-        IEnumerator Start()
+        void Start()
         {
-
+            previousTutorial.GetComponent<AudioSource>().enabled = false;
             audioSource = GetComponent<AudioSource>();
 
             audioSource.clip = voltageChanged;
             audioSource.Play();
-            yield return new WaitForSeconds(audioSource.clip.length);
+
 
 
             oldResistor.SetActive(false);
             newResistor.SetActive(true);
 
-            nextTutorial.GetComponent<SwapResistor>().enabled = true;
+            placedOldResistor.SetActive(false);
+            placedNewResistor.SetActive(true);
+
+            waitForSeconds(audioSource);
+
+            homeScreen.SetActive(true);
+
+
             previousTutorial.GetComponent<SecondPowerWireTutorial>().enabled = false;
 
 
@@ -44,7 +54,13 @@ namespace BV.Hololens.EngineeringApp.Classes
 
 
         }
-
+        IEnumerator waitForSeconds(AudioSource audio)
+        {
+            yield return new WaitForSeconds(audio.clip.length);
+        }
 
     }
+
+
+    
 }

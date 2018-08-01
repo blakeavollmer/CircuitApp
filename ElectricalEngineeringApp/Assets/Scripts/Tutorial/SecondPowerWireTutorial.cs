@@ -22,6 +22,13 @@ namespace BV.Hololens.EngineeringApp.Classes
         public GameObject OneConnect;
         public GameObject LEDOff;
         public GameObject LEDOn;
+        public GameObject AnimationObject;
+
+        public GameObject oldResistor;
+        public GameObject newResistor;
+        public GameObject placedOldResistor;
+        public GameObject placedNewResistor;
+        public GameObject homeScreen;
 
         public GameObject nextTutorial;
         public GameObject previousTutorial;
@@ -29,8 +36,10 @@ namespace BV.Hololens.EngineeringApp.Classes
         public AudioSource audioSource;
 
         public AudioClip Explain1;
-        public AudioClip Explain2;
-        public AudioClip negativeConnect;
+        public AudioClip voltageChanged;
+
+        Animator anim;
+
 
         int count = 0;
         bool TaskCompleted = false;
@@ -40,6 +49,20 @@ namespace BV.Hololens.EngineeringApp.Classes
             InputManager.Instance.AddGlobalListener(gameObject);
             PositiveHole.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
             PositiveHole.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+        }
+
+        void Update()
+        {
+            if (count == 0)
+            {
+                PositiveHole.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                PositiveHole.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            }
+            if (count == 1)
+            {
+                NegativeHole.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                NegativeHole.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
+            }
         }
 
         public override void CheckIfHappening()
@@ -56,7 +79,7 @@ namespace BV.Hololens.EngineeringApp.Classes
             
                 if (currentObject.name == "+1L" && count == 0)
                 {
-
+                    previousTutorial.GetComponent<AudioSource>().enabled = false;
 
                     PositiveWireNine.SetActive(true);
 
@@ -65,36 +88,53 @@ namespace BV.Hololens.EngineeringApp.Classes
                     NegativeHole.transform.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
                     NegativeHole.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
                     audioSource = GetComponent<AudioSource>();
-                    audioSource.clip = negativeConnect;
-                    audioSource.Play();
+
                 }
 
                 else if (currentObject.name == "-1R" && count == 1)
                 {
-
-                    NegativeWireNine.SetActive(true);
-
-
-                    NineVolt.SetActive(false);
-                    NineConnect.SetActive(true);
-                    audioSource.clip = Explain2;
-                    audioSource.Play();
+                audioSource.Stop();
+                NegativeWireNine.SetActive(true);
 
 
-                    count++;
+                NineVolt.SetActive(false);
+                NineConnect.SetActive(true);
 
-                    LEDOff.SetActive(false);
-                    LEDOn.SetActive(true);
 
-                nextTutorial.GetComponent<VoltageChange>().enabled = true;
+
+                count++;
+
+                LEDOff.SetActive(false);
+                LEDOn.SetActive(true);
+
+                audioSource.clip = voltageChanged;
+                audioSource.Play();
+
+
+
+                oldResistor.SetActive(false);
+                newResistor.SetActive(true);
+
+                placedOldResistor.SetActive(false);
+                placedNewResistor.SetActive(true);
+
+                
+
+                homeScreen.SetActive(true);
+
+                AnimationObject.SetActive(true);
+                anim.enabled = true;
+                anim.Play("9vAnimation");
+
+               // nextTutorial.GetComponent<VoltageChange>().enabled = true;
                 previousTutorial.GetComponent<PowerSourceTutorial>().enabled = false;
 
                 TaskCompleted = true;
-                    this.enabled = false;
+                this.enabled = false;
 
 
-                    NegativeHole.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
-                    TutorialManager.Instance.CompletedTutorial();
+                NegativeHole.transform.GetComponent<MeshRenderer>().material.color = Color.clear;
+                TutorialManager.Instance.CompletedTutorial();
                 }
             }
 
