@@ -378,6 +378,7 @@ MonoBehaviour:
   selectWire: {fileID: 8300000, guid: 60550c64fa36f0541b67f0adf7e303f9, type: 3}
   nextTutorial: {fileID: 1221835560}
   previousTutorial: {fileID: 924671690}
+  changeText: {fileID: 192541380}
 --- !u!82 &46382629
 AudioSource:
   m_ObjectHideFlags: 0
@@ -833,6 +834,7 @@ MonoBehaviour:
   Explain1: {fileID: 8300000, guid: 709b02fefee1e1742ba0f3fc3ad3de8a, type: 3}
   Explain2: {fileID: 8300000, guid: 94f1705058fa0674fb736de8ea382dea, type: 3}
   negativeConnect: {fileID: 8300000, guid: 9cc0d36d4f301584bac1b2fb02a0ea6c, type: 3}
+  changeText: {fileID: 192541380}
 --- !u!82 &58119102
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3020,6 +3022,82 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190444925}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &192541378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 192541379}
+  - component: {fileID: 192541381}
+  - component: {fileID: 192541380}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &192541379
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 192541378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1382557930}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -6}
+  m_SizeDelta: {x: 2960, y: 1695}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &192541380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 192541378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 180
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 180
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: This is the tutorial for the electrical cicuits app. Here you will be connecting
+    various components on the breadboard into a simple circuit.
+--- !u!222 &192541381
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 192541378}
+  m_CullTransparentMesh: 0
 --- !u!1 &196957444
 GameObject:
   m_ObjectHideFlags: 0
@@ -8068,6 +8146,7 @@ MonoBehaviour:
   audioSource: {fileID: 1456086652}
   welcomeAudio: {fileID: 8300000, guid: c611c8dcb0b30d34f9e8d25b551317e9, type: 3}
   grabLED: {fileID: 8300000, guid: f85b6091c758f064cbc9f81b91f55001, type: 3}
+  changeText: {fileID: 192541380}
 --- !u!82 &451043694
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10203,7 +10282,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 576514333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: -42.6}
   m_LocalScale: {x: 0.7837859, y: 0.69828695, z: 1}
   m_Children:
   - {fileID: 1806278949}
@@ -10212,7 +10291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42, y: 0}
+  m_AnchoredPosition: {x: 63.1, y: -9.8}
   m_SizeDelta: {x: 125.45, y: 43.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &576514335
@@ -14229,6 +14308,7 @@ MonoBehaviour:
   negativeLead: {fileID: 8300000, guid: 062ecea751e45604890bdcfff0a3063a, type: 3}
   goodJob: {fileID: 8300000, guid: ae6b0a6768739f84e940116bcb072aa5, type: 3}
   nextStep: {fileID: 8300000, guid: b7bf8bd0433a606489f0757115ed73cc, type: 3}
+  changeText: {fileID: 192541380}
   nextTutorial: {fileID: 2018340598}
   previousTutorial: {fileID: 851384594}
 --- !u!82 &764575791
@@ -15717,6 +15797,7 @@ MonoBehaviour:
   audioSource: {fileID: 1456086652}
   Explain1: {fileID: 8300000, guid: 709b02fefee1e1742ba0f3fc3ad3de8a, type: 3}
   voltageChanged: {fileID: 8300000, guid: dec502db2fe07534e81ac2dbc0529c4a, type: 3}
+  changeText: {fileID: 192541380}
 --- !u!82 &833334458
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17643,6 +17724,7 @@ MonoBehaviour:
   previousTutorial: {fileID: 2018340598}
   audioSource: {fileID: 1456086652}
   nextStep: {fileID: 8300000, guid: 81ce535c158a2d141a2dda8b9475c915, type: 3}
+  changeText: {fileID: 192541380}
 --- !u!82 &924671693
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19469,6 +19551,113 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: d0e17bbf999d4ca4bb3785ef485e39cf,
     type: 3}
   m_PrefabInternal: {fileID: 2117040653}
+--- !u!1 &1023375916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1023375920}
+  - component: {fileID: 1023375919}
+  - component: {fileID: 1023375918}
+  - component: {fileID: 1023375917}
+  - component: {fileID: 1023375921}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1023375917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023375916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1023375918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023375916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &1023375919
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023375916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 1071590893}
+  m_PlaneDistance: 1
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1023375920
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023375916}
+  m_LocalRotation: {x: -0, y: -0.047607157, z: -0, w: 0.99886614}
+  m_LocalPosition: {x: 0, y: 0, z: 5.52}
+  m_LocalScale: {x: 0.00031850618, y: 0.00031850618, z: 0.00031850618}
+  m_Children:
+  - {fileID: 1382557930}
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: -5.4570003, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.693, y: -0.27}
+  m_SizeDelta: {x: 1803.75, y: 882.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1023375921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023375916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aebab3047f2113489ca3eb8423228b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Canvas: {fileID: 1023375919}
 --- !u!1 &1024941108
 GameObject:
   m_ObjectHideFlags: 0
@@ -20028,6 +20217,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: 007e250f435ed7e498509d84fae65e2e,
     type: 3}
   m_PrefabInternal: {fileID: 2015002251}
+--- !u!20 &1071590893 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20049547090947856, guid: 3eddd1c29199313478dd3f912bfab2ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 75071929}
 --- !u!1 &1076131436
 GameObject:
   m_ObjectHideFlags: 0
@@ -22348,6 +22542,7 @@ MonoBehaviour:
   previousTutorial: {fileID: 46382626}
   audioSource: {fileID: 1456086652}
   selectPower: {fileID: 8300000, guid: 350bd31606bc91049b536ef78bef5df5, type: 3}
+  changeText: {fileID: 192541380}
 --- !u!82 &1221835563
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22497,6 +22692,7 @@ MonoBehaviour:
   oldNegative: {fileID: 495535008}
   nextTutorial: {fileID: 833334455}
   previousTutorial: {fileID: 58119099}
+  changeText: {fileID: 192541380}
 --- !u!82 &1226692542
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24731,6 +24927,76 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1368166366}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1382557929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1382557930}
+  - component: {fileID: 1382557932}
+  - component: {fileID: 1382557931}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1382557930
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382557929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 192541379}
+  m_Father: {fileID: 1023375920}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 126}
+  m_SizeDelta: {x: 3000, y: 1700}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1382557931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382557929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.53333336, b: 1, a: 0.9019608}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1382557932
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382557929}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1386671215
 Prefab:
   m_ObjectHideFlags: 0
@@ -33040,6 +33306,7 @@ MonoBehaviour:
   positiveConnect: {fileID: 8300000, guid: 2483febb17676c54eaf22d223592c704, type: 3}
   nextTutorial: {fileID: 58119099}
   previousTutorial: {fileID: 1221835560}
+  changeText: {fileID: 192541380}
 --- !u!82 &1867782521
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36056,6 +36323,7 @@ MonoBehaviour:
   resistorPlace: {fileID: 8300000, guid: 4fbb9d9f7e17b134897d7840d274165e, type: 3}
   nextTutorial: {fileID: 924671690}
   previousTutorial: {fileID: 764575788}
+  changeText: {fileID: 192541380}
 --- !u!82 &2018340601
 AudioSource:
   m_ObjectHideFlags: 0

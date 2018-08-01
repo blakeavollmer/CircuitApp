@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BV.Hololens.EngineeringApp.Classes
 {
@@ -12,6 +13,9 @@ namespace BV.Hololens.EngineeringApp.Classes
 
         public AudioClip welcomeAudio;
         public AudioClip grabLED;
+        public Text changeText;
+        
+
         bool TaskCompleted = false;
 
         IEnumerator Start()
@@ -19,11 +23,19 @@ namespace BV.Hololens.EngineeringApp.Classes
 
             audioSource = GetComponent<AudioSource>();
 
+            
             audioSource.clip = welcomeAudio;
             audioSource.Play();
             yield return new WaitForSeconds(audioSource.clip.length);
             audioSource.clip = grabLED;
             audioSource.Play();
+            if (this.enabled != false)
+                changeText.text = "To start, select the LED.";
+
+
+
+
+
 
             waitForSeconds(audioSource);
 

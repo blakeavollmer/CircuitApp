@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BV.Hololens.EngineeringApp.Classes
 {
@@ -23,6 +24,8 @@ namespace BV.Hololens.EngineeringApp.Classes
         public AudioSource audioSource;
 
         public AudioClip nextStep;
+
+        public Text changeText;
 
         int count;
         bool TaskCompleted = false;
@@ -98,6 +101,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
                 audioSource.clip = nextStep;
                 audioSource.Play();
+                changeText.text = "Now select a wire.";
                 nextTutorial.GetComponent<WireSelect>().enabled = true;
                 previousTutorial.GetComponent<ResistSelect>().enabled = false;
                 TaskCompleted = true;

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BV.Hololens.EngineeringApp.Classes
 {
@@ -25,6 +26,8 @@ namespace BV.Hololens.EngineeringApp.Classes
 
         public GameObject nextTutorial;
         public GameObject previousTutorial;
+
+        public Text changeText;
 
 
 
@@ -59,6 +62,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
                 audioSource.clip = positiveWire;
                 audioSource.Play();
+                changeText.text = "Connect the wires to the holes again.";
                 NineVolt.SetActive(true);
                 OnePointFiveVolt.SetActive(false);
                 LEDOn.SetActive(false);

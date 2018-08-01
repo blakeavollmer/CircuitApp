@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BV.Hololens.EngineeringApp.Classes
 {
@@ -37,6 +38,8 @@ namespace BV.Hololens.EngineeringApp.Classes
 
         public AudioClip Explain1;
         public AudioClip voltageChanged;
+
+        public Text changeText;
 
         Animator anim;
 
@@ -109,6 +112,9 @@ namespace BV.Hololens.EngineeringApp.Classes
 
                 audioSource.clip = voltageChanged;
                 audioSource.Play();
+                changeText.text = "When we increase the voltage, we should also increase the resistance. See that the resistor has changed -this is a 1,000 ohm resistor.";
+                StartCoroutine(Waiting());
+
 
 
 
@@ -137,7 +143,11 @@ namespace BV.Hololens.EngineeringApp.Classes
                 TutorialManager.Instance.CompletedTutorial();
                 }
             }
-
+        IEnumerator Waiting()
+        {
+            yield return new WaitForSeconds(10);
+            changeText.text = "This completes the tutorial. Thank you for using the Electrical Circuits App!";
+        }
         
     }
 }

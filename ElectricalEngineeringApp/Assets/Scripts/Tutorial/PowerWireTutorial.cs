@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BV.Hololens.EngineeringApp.Classes
 {
@@ -35,6 +36,8 @@ namespace BV.Hololens.EngineeringApp.Classes
         public AudioClip Explain1;
         public AudioClip Explain2;
         public AudioClip negativeConnect;
+
+        public Text changeText;
 
         Animator anim;
 
@@ -101,6 +104,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
                 audioSource.clip = negativeConnect;
                 audioSource.Play();
+                changeText.text = "Now we are going to connect the negative black wire. Select the highlighted hole to place the wire.";
             }
 
             else if (currentObject.name == "-1R" && count == 1 || count == 3)
@@ -128,7 +132,8 @@ namespace BV.Hololens.EngineeringApp.Classes
                     OneConnect.SetActive(true);
                     audioSource.clip = Explain1;
                     audioSource.Play();
-                    waitForSeconds(audioSource);
+                    changeText.text = "You have completed your first circuit. The electrons flow from the negative source to the positive source. This is what we call an electric current.";
+
                 }
                 count++;
 
@@ -139,9 +144,14 @@ namespace BV.Hololens.EngineeringApp.Classes
                 anim.enabled = true;
                 anim.Play("3vAnimation");
 
-                
+                StartCoroutine(Waiting9());
 
-                
+                StartCoroutine(Waiting12());
+                StartCoroutine(Waiting10());
+
+
+
+
 
                 nextTutorial.GetComponent<PowerSourceTutorial>().enabled = true;
                 previousTutorial.GetComponent<SecondPowerSource>().enabled = false;
@@ -157,6 +167,29 @@ namespace BV.Hololens.EngineeringApp.Classes
         IEnumerator waitForSeconds(AudioSource audio)
         {
             yield return new WaitForSeconds(audio.clip.length);
+        }
+
+        IEnumerator Waiting9()
+        {
+            yield return new WaitForSeconds(9);
+
+                changeText.text = "We can also calculate Ohm’s Law. Ohm’s Law states that the electrical current flowing through a fixed linear resistance is directly proportional to the voltage applied across it and is also inversely proportional to the resistance.";
+        }
+
+        IEnumerator Waiting10()
+        {
+            yield return new WaitForSeconds(35);
+
+                changeText.text = "Let's try a different voltage. Select the 9 Volt Battery.";
+
+        }
+
+        IEnumerator Waiting12()
+        {
+            yield return new WaitForSeconds(23);
+
+                changeText.text = "The current is equal to voltage over resistance. Our voltage is 3, and our resistance is 270 ohm. This means our current is .01 amps.";
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HoloToolkit.Unity.InputModule;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 namespace BV.Hololens.EngineeringApp.Classes
@@ -20,6 +21,8 @@ namespace BV.Hololens.EngineeringApp.Classes
         public AudioClip goodJob;
         public AudioClip nextStep;
 
+        public Text changeText;
+
         public GameObject nextTutorial;
         public GameObject previousTutorial;
 
@@ -37,6 +40,7 @@ namespace BV.Hololens.EngineeringApp.Classes
             audioSource = GetComponent<AudioSource>();
             audioSource.clip = positiveLead;
             audioSource.Play();
+            changeText.text = "Select the hole to place the positive lead.";
         }
 
         void Update()
@@ -74,6 +78,7 @@ namespace BV.Hololens.EngineeringApp.Classes
                 HoleRight.transform.GetComponent<MeshRenderer>().material.color = Color.yellow;
                 audioSource.clip = negativeLead;
                 audioSource.Play();
+                changeText.text = "“Select the hole to place the negative lead.";
 
             }
 
@@ -93,6 +98,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
                 audioSource.clip = nextStep;
                 audioSource.Play();
+                changeText.text = "Select the 270 ohm resistor.";
                 new WaitForSeconds(audioSource.clip.length);
                 nextTutorial.GetComponent<ResistSelect>().enabled = true;
                 previousTutorial.GetComponent<LEDSelect>().enabled = false;

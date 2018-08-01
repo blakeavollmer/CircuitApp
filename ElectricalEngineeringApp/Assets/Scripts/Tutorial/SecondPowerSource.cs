@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BV.Hololens.EngineeringApp.Classes
 {
@@ -20,6 +21,7 @@ namespace BV.Hololens.EngineeringApp.Classes
         public GameObject nextTutorial;
         public GameObject previousTutorial;
 
+        public Text changeText;
 
 
         bool TaskCompleted = false;
@@ -51,6 +53,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
                 audioSource.clip = positiveConnect;
                 audioSource.Play();
+                changeText.text = "Look at the leftmost column of the breadboard. This is called a positive rail. We are going to connect the positive red wire first. Select the hightlighted hole to place the wire.";
 
                 waitForSeconds(audioSource);
 

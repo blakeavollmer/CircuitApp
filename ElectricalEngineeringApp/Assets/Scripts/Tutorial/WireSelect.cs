@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BV.Hololens.EngineeringApp.Classes
 {
@@ -15,6 +16,8 @@ namespace BV.Hololens.EngineeringApp.Classes
 
         public GameObject nextTutorial;
         public GameObject previousTutorial;
+
+        public Text changeText;
 
         private void Start()
         {
@@ -41,6 +44,7 @@ namespace BV.Hololens.EngineeringApp.Classes
 
                 audioSource.clip = selectWire;
                 audioSource.Play();
+                changeText.text = "Select the highlighted hole to place the wire.";
                 nextTutorial.GetComponent<WirePlace>().enabled = true;
                 previousTutorial.GetComponent<ResistPlace>().enabled = false;
                 TaskCompleted = true;
